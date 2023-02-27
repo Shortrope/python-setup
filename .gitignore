@@ -1,0 +1,7 @@
+__pycache__/
+.mypy_cache/
+venv/
+venvw/
+*.swp
+scratch.txt
+scratch.py

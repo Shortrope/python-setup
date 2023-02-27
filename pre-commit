@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "Pylint..."
+pylint --recursive=True --ignore-paths=./git,./venv,./mypy_cache,./__pycache__ ./
+result=$?
+if [[ $result != 0 ]]; then
+    echo "Pre-Commit FAIL: pylint result code: $result"
+    exit $result
+fi
+echo "Mypy..."
+mypy ./src/
+result=$?
+if [[ $result != 0 ]]; then
+    echo "Pre-Commit FAIL: mypy result code: $result"
+    exit $result
+fi
